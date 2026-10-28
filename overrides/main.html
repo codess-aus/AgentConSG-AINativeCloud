@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if page.meta.hero %}
+    <figure class="workshop-hero">
+      <a href="{{ page.meta.hero | url }}" aria-label="Open full-size slide: {{ page.title }}">
+        <img src="{{ page.meta.hero | url }}"
+             alt="{{ page.meta.hero_alt }}"
+             width="916" height="516" fetchpriority="high">
+      </a>
+      <figcaption>AgentCon Singapore 2026 · {{ page.title }}. Select the slide to view it full size.</figcaption>
+    </figure>
+  {% endif %}
+  {{ super() }}
+  {% if page.file.src_uri != "404.md" %}
+    <nav class="workshop-pagination" aria-label="Workshop page navigation">
+      {% set previous = page.previous_page %}
+      {% set next = page.next_page %}
+      <a class="workshop-page-link" rel="prev"
+         href="{{ previous.url | url if previous else 'resources/' | url }}">
+        <span class="workshop-page-direction">← Back</span>
+        <span>{{ previous.title if previous else "Resources" }}</span>
+      </a>
+      <a class="workshop-page-link" rel="next"
+         href="{{ next.url | url if next else '.' | url }}">
+        <span class="workshop-page-direction">{{ "Next" if next else "Return to home" }} →</span>
+        <span>{{ next.title if next else "Workshop home" }}</span>
+      </a>
+    </nav>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,73 @@
+site_name: Building the AI Native Cloud
+site_description: A hands-on AgentCon Singapore 2026 workshop using GitHub Copilot, Python, and the Agentic SDLC.
+site_url: https://codess-aus.github.io/AgentConSG-AINativeCloud/
+repo_url: https://github.com/codess-aus/AgentConSG-AINativeCloud
+repo_name: Workshop source
+copyright: AgentCon Singapore 2026 · Building with intent
+strict: true
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  font: false
+  icon:
+    logo: material/cloud-braces
+  features:
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - "01 · Build the AI-native cloud": build-the-cloud.md
+  - "02 · From assisted to native": the-shift.md
+  - "03 · Human judgment": human-judgment.md
+  - "04 · Context and specifications": context.md
+  - "05 · Tools and boundaries": boundaries.md
+  - "06 · Inspectable engineering": engineering-loop.md
+  - "07 · Reliability and evaluation": reliability.md
+  - "08 · Least privilege": least-privilege.md
+  - "09 · Repeatable team practice": team-capability.md
+  - "10 · Build with intent": build-with-intent.md
+  - Resources: resources.md
+
+hooks:
+  - hooks/assets.py
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/workshop.css
+
+extra_javascript:
+  - javascripts/accessibility.js
