@@ -1,5 +1,45 @@
 # AgentConSG Building the AI-Native Cloud
 
+## Workshop website
+
+**[Open the workshop](https://codess-aus.github.io/AgentConSG-AINativeCloud/)**
+
+The AgentCon Singapore 2026 workshop uses MkDocs and Material for MkDocs, with
+ten technical chapters, the original slide heroes, Python exercises, search,
+light/dark themes, and sequential navigation. The source talk notes follow below.
+
+### Develop locally
+
+Use Python 3.15 (the offline exercises also support Python 3.12+).
+Create a virtual environment with `python -m venv .venv`, activate it, and run
+`python -m pip install -r requirements.txt`. On macOS/Linux activation is
+`source .venv/bin/activate`; on Windows PowerShell use `.venv\Scripts\Activate.ps1`.
+Start the preview with `python -m mkdocs serve` and open the local URL it prints.
+
+Run the offline scenario with `python -m examples.cloud_triage`.
+Before publishing, run `python -m unittest discover -s tests -v`,
+`python -m mkdocs build --strict`, and `python scripts/check_site.py`.
+The last command checks built local links, image availability, theme controls,
+page navigation, all eleven thumbnails, and every Python chapter snippet.
+
+### Edit and publish
+
+Edit page content in `docs/`, navigation in `mkdocs.yml`, and presentation in
+`docs/stylesheets/workshop.css` or `overrides/main.html`. Original slides stay
+in `assets/`; `hooks/assets.py` includes them in the generated site without
+duplicating the source files. Supply `hero` and descriptive `hero_alt` metadata
+on each page, and keep the slide's important text available in the page content.
+The home and resources controls wrap around so every page has both directions.
+Mona Sans is self-hosted, with its licence in `docs/fonts/OFL.txt`; the site
+does not depend on Google Fonts.
+
+The GitHub Actions workflow builds and checks pull requests. A push to `main`
+deploys the checked artifact to GitHub Pages using the `github-pages` environment.
+Repository **Settings > Pages > Source** must be **GitHub Actions**.
+No deployment token or cloud credentials are required.
+
+## Original talk notes
+
 ### 1. Building the AI-Native Cloud | 0:00–2:00
 **On slide:** Title and one-line premise: *AI-native is a way of engineering, not a feature.*
 
