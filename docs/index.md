@@ -23,7 +23,7 @@ The running example is a **read-only cloud incident-triage assistant**. GitHub C
 
 Use Python **3.15** for the workshop and a current VS Code installation with GitHub Copilot access for the prompting exercises. The standard-library example also works with Python 3.12 or later. Copilot features and availability depend on your plan, editor, and organisation policies.
 
-Follow along using the Python shown in each chapter. Every snippet comes from the triage example and shows its expected behaviour, so you do not need to download anything. Use the Copilot prompts with your own project or a new scratch folder. The [resources page](resources.md) links to setup documentation and learning paths.
+Follow along using the Python shown in each chapter. Every snippet uses the triage example and shows its expected behaviour. To run the snippets yourself, grab the [workshop code samples](https://github.com/codess-aus/AgentConSG-AINativeCloud/tree/main/examples): save both files into a folder named `examples`, then run `python -m examples.cloud_triage` from the folder that contains it. On Windows, use `py` if `python` is not available. Use the Copilot prompts with the samples, your own project, or a new scratch folder. The [resources page](resources.md) links to setup documentation and learning paths.
 
 !!! tip "Choose your pace"
     Follow the ten chapters alongside the 25-minute talk, or allow 60 to 90 minutes to complete the exercises. Each chapter includes a Copilot prompt and an observable checkpoint. You can read all the content without a Copilot subscription.

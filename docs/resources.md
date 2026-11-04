@@ -8,6 +8,10 @@ hero_alt: "AgentCon Singapore, part of the AgentCon World Tour by the Global AI 
 
 Keep learning after **Building the AI Native Cloud** at AgentCon Singapore 2026. Start with the learning paths supplied for this session, then use the reference documentation when implementing your own workflow.
 
+## Workshop code samples
+
+- [Code samples](https://github.com/codess-aus/AgentConSG-AINativeCloud/tree/main/examples): the standard-library Python triage example used in every chapter. Save both files into a folder named `examples` and run `python -m examples.cloud_triage`.
+
 ## Session learning paths
 
 - [Awesome Copilot Learning Hub](https://awesome-copilot.github.com/learning-hub/): community-curated guidance and practical patterns.
