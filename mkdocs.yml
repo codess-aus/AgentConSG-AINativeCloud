@@ -1,8 +1,6 @@
 site_name: Building the AI Native Cloud
 site_description: A hands-on AgentCon Singapore 2026 workshop using GitHub Copilot, Python, and the Agentic SDLC.
 site_url: https://codess-aus.github.io/AgentConSG-AINativeCloud/
-repo_url: https://github.com/codess-aus/AgentConSG-AINativeCloud
-repo_name: Workshop source
 copyright: AgentCon Singapore 2026 · Building with intent
 strict: true
 

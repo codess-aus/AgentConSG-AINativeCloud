@@ -29,12 +29,4 @@ Keep learning after **Building the AI Native Cloud** at AgentCon Singapore 2026.
 - [OWASP Top 10 for LLM applications](https://genai.owasp.org/llm-top-10/): explore prompt injection, excessive agency, and related risks.
 - [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/): connect AI workflows with reliability, security, and operational excellence.
 
-## Workshop source and website
-
-- [Workshop repository](https://github.com/codess-aus/AgentConSG-AINativeCloud): Python example, tests, site configuration, and original slide images.
-- [MkDocs](https://www.mkdocs.org/): build the website locally.
-- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/): navigation, search, and accessible theme controls.
-- [GitHub Pages](https://docs.github.com/en/pages): understand the publishing workflow.
-- [AgentCon Singapore](https://agentcon.city/singapore): conference information.
-
 The workshop example is deliberately offline and read-only. Before using a real model or cloud API, add authenticated identity, scoped credentials, schema validation at the model boundary, deadlines, redacted observability, and a representative evaluation dataset.

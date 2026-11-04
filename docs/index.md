@@ -23,7 +23,7 @@ The running example is a **read-only cloud incident-triage assistant**. GitHub C
 
 Use Python **3.15** for the workshop and a current VS Code installation with GitHub Copilot access for the prompting exercises. The standard-library example also works with Python 3.12 or later. Copilot features and availability depend on your plan, editor, and organisation policies.
 
-Clone this repository using its **Code** menu and open the folder in VS Code. In the integrated terminal, run `python -m examples.cloud_triage`, then `python -m unittest discover -s tests -v`. On Windows, use `py` if `python` is not available. The [resources page](resources.md) links to the source repository and setup documentation.
+Follow along using the Python shown in each chapter. Every snippet comes from the triage example and shows its expected behaviour, so you do not need to download anything. Use the Copilot prompts with your own project or a new scratch folder. The [resources page](resources.md) links to setup documentation and learning paths.
 
 !!! tip "Choose your pace"
     Follow the ten chapters alongside the 25-minute talk, or allow 60 to 90 minutes to complete the exercises. Each chapter includes a Copilot prompt and an observable checkpoint. You can read all the content without a Copilot subscription.

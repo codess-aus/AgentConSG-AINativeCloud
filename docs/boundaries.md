@@ -60,11 +60,11 @@ Directory boundaries make the intended scope reviewable, but a directory name is
 <figcaption>A task contract makes completion inspectable. Passing CI is necessary, but it does not prove that the change meets its intent.</figcaption>
 </figure>
 
-For a proposed trace-identifier improvement to this repository's triage example, the contract could be:
+For a proposed trace-identifier improvement to the workshop's triage example, the contract could be:
 
 | Contract element | Concrete agreement |
 |---|---|
-| Inputs | The issue, `examples/cloud_triage.py`, existing tests, and consumers of execution results. No credentials or raw customer incidents. |
+| Inputs | The issue, the triage module, existing tests, and consumers of execution results. No credentials or raw customer incidents. |
 | Scope | The result contract and focused tests. Preserve read-only actions, trusted service scope, and call limits; exclude deployment and workflow changes. |
 | Outputs | A plan, a bounded pull request, and evidence linked to the tested revision. |
 | Success | Results contain the agreed identifier; existing consumers remain compatible; missing, invalid, and denied cases preserve their specified behaviour. |
