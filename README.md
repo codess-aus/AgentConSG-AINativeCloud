@@ -5,8 +5,9 @@
 **[Open the workshop](https://codess-aus.github.io/AgentConSG-AINativeCloud/)**
 
 The AgentCon Singapore 2026 workshop uses MkDocs and Material for MkDocs, with
-ten technical chapters, the original slide heroes, Python exercises, search,
-light/dark themes, and sequential navigation. The source talk notes follow below.
+ten technical chapters, the original slide heroes, fourteen deeper-exploration
+slides within chapters 3 through 10, Python exercises, search, light/dark themes,
+and sequential navigation. The source talk notes follow below.
 
 ### Develop locally
 
@@ -20,7 +21,8 @@ Run the offline scenario with `python -m examples.cloud_triage`.
 Before publishing, run `python -m unittest discover -s tests -v`,
 `python -m mkdocs build --strict`, and `python scripts/check_site.py`.
 The last command checks built local links, image availability, theme controls,
-page navigation, all eleven thumbnails, and every Python chapter snippet.
+page navigation, all eleven thumbnails, the fourteen chapter slides, and every
+Python chapter snippet.
 
 ### Edit and publish
 
@@ -29,6 +31,12 @@ Edit page content in `docs/`, navigation in `mkdocs.yml`, and presentation in
 in `assets/`; `hooks/assets.py` includes them in the generated site without
 duplicating the source files. Supply `hero` and descriptive `hero_alt` metadata
 on each page, and keep the slide's important text available in the page content.
+Place supporting slides further down the relevant chapter in a `workshop-slide`
+figure, with a descriptive Markdown image, `loading=lazy`, `decoding=async`, and
+a caption. Explain the concepts in nearby text, including any limitations of
+illustrative configuration. Keep supporting slides out of the Home gallery and
+leave the original heroes unchanged. Update the chapter-slide mapping in
+`scripts/check_site.py` when adding further slides.
 The home and resources controls wrap around so every page has both directions.
 Mona Sans is self-hosted, with its licence in `docs/fonts/OFL.txt`; the site
 does not depend on Google Fonts.
