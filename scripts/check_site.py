@@ -13,6 +13,22 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 sys.path.insert(0, str(ROOT))
 
+# Keep supporting slides in their chapters, separate from the original heroes.
+CHAPTER_SLIDES = {
+    "human-judgment": ["3A-Structure.png"],
+    "context": ["4A-map.png", "4B-MapBoundaries.png"],
+    "boundaries": [
+        "5A-exampleboundaries.png",
+        "5B-taskcontracts.png",
+        "5C-tools.png",
+    ],
+    "engineering-loop": ["6A-review.png", "6B-visibleartifacts.png"],
+    "reliability": ["7A-Risk.png", "7B-ReliableWorkflows.png"],
+    "least-privilege": ["8A-enforce.png", "8B-gates.png"],
+    "team-capability": ["9A-assumefailure.png"],
+    "build-with-intent": ["10A-summary.png"],
+}
+
 
 class PageParser(HTMLParser):
     def __init__(self):
@@ -25,9 +41,19 @@ class PageParser(HTMLParser):
         self.directions = set()
         self.theme_switches = 0
         self.search_label = None
+        self.slide_images = []
+        self.in_slide = False
+        self.heading_count = 0
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "h1":
+            self.heading_count += 1
+        if tag == "figure" and attrs.get("class") == "workshop-slide":
+            assert self.hero_count == 1 and self.heading_count, (
+                "Supporting slides must follow the hero and chapter heading"
+            )
+            self.in_slide = True
         if "id" in attrs:
             self.ids.add(attrs["id"])
         if tag == "a" and "href" in attrs:
@@ -36,6 +62,8 @@ class PageParser(HTMLParser):
                 self.directions.add(attrs["rel"])
         if tag == "img":
             self.images.append(attrs)
+            if self.in_slide:
+                self.slide_images.append(attrs)
         if tag == "figure" and attrs.get("class") == "workshop-hero":
             self.hero_count += 1
         if tag == "nav" and attrs.get("aria-label") == "Workshop page navigation":
@@ -44,6 +72,10 @@ class PageParser(HTMLParser):
             self.theme_switches += 1
         if attrs.get("data-md-component") == "search":
             self.search_label = attrs.get("aria-label")
+
+    def handle_endtag(self, tag):
+        if tag == "figure":
+            self.in_slide = False
 
 
 def check() -> None:
@@ -62,6 +94,17 @@ def check() -> None:
         assert page.directions == {"prev", "next"}, f"Missing direction: {path}"
         assert page.theme_switches == 2, f"Missing theme controls: {path}"
         assert page.search_label, f"Search dialog lacks a name: {path}"
+        chapter = path.relative_to(SITE).parts[0]
+        expected_slides = CHAPTER_SLIDES.get(chapter, [])
+        actual_slides = [
+            Path(unquote(urlsplit(image["src"]).path)).name
+            for image in page.slide_images
+        ]
+        assert actual_slides == expected_slides, f"Incorrect chapter slides: {path}"
+        for image in page.slide_images:
+            assert image.get("alt", "").strip(), f"Slide lacks descriptive alt text: {path}"
+            assert image.get("loading") == "lazy", f"Slide must load lazily: {path}"
+            assert image.get("decoding") == "async", f"Slide must decode asynchronously: {path}"
         for image in page.images:
             assert "alt" in image, f"Image lacks alt attribute: {path}"
             target = (path.parent / unquote(urlsplit(image["src"]).path)).resolve()
@@ -81,6 +124,7 @@ def check() -> None:
                 )
 
     home = pages[(SITE / "index.html").resolve()]
+    assert len(home.images) == 12, "Home must retain only its hero and eleven thumbnails"
     thumbnails = {image["src"] for image in home.images if image.get("loading") == "lazy"}
     assert len(thumbnails) == 11, "Home must show every original hero as a thumbnail"
 
@@ -92,7 +136,12 @@ def check() -> None:
                 exec(compile(snippet, str(path), "exec"), {"__name__": "__workshop__"})
             snippets += 1
     assert snippets == 10, "Expected one executable Python example per chapter"
-    print(f"Checked {len(pages)} HTML pages, 11 thumbnails, and {snippets} Python examples.")
+    slide_count = sum(len(page.slide_images) for page in pages.values())
+    assert slide_count == 14, "Expected all fourteen supporting chapter slides"
+    print(
+        f"Checked {len(pages)} HTML pages, 11 thumbnails, "
+        f"{slide_count} chapter slides, and {snippets} Python examples."
+    )
 
 
 if __name__ == "__main__":

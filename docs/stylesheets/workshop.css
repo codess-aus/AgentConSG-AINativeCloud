@@ -102,7 +102,13 @@
   max-width: none !important;
 }
 
-.workshop-hero img {
+.workshop-slide {
+  margin: 1.5rem 0 !important;
+  max-width: none !important;
+}
+
+.workshop-hero img,
+.workshop-slide img {
   display: block;
   width: 100%;
   height: auto;
@@ -110,7 +116,8 @@
   border-radius: 0.9rem;
 }
 
-.workshop-hero figcaption {
+.workshop-hero figcaption,
+.workshop-slide figcaption {
   color: var(--md-default-fg-color--light);
   font-size: 0.7rem;
   font-style: normal;

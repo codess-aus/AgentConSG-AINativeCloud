@@ -38,6 +38,38 @@ Use a versioned, sanitised dataset with expected outcomes or a human-reviewed ru
 
 Measure unsafe-action attempts, unsupported claims, appropriate escalations, and useful triage outcomes. Report denominators and case categories, not a single attractive percentage. A blocked unsafe proposal is a harness success but still a model behaviour worth investigating.
 
+## Design autonomy around consequence
+
+<figure class="workshop-slide" markdown="1">
+
+![Risk-based autonomy: infrastructure and workflow changes need stricter rules and expert reviews; application and dependency changes need pull requests and checks; low-risk documentation may qualify for automerge only after configured requirements pass.](assets/7A-Risk.png){ loading=lazy decoding=async }
+
+<figcaption>Risk determines the gate. An agent that can bypass required checks defeats the surrounding reliability design.</figcaption>
+</figure>
+
+Use the slide's categories as a starting point, not a universal classification. Infrastructure and workflow edits can alter the controls that protect every later change. Application and dependency changes can affect runtime behaviour or supply-chain exposure. Documentation and formatting often have less impact, but an operational runbook or executable documentation example can still be consequential.
+
+For each task, consider blast radius, reversibility, data exposure, and the strength of available checks. A low-risk task might qualify for automerge only when repository policy allows it and every configured requirement passes. Higher-risk work needs relevant owners and stronger evidence; passing a familiar unit suite does not justify increasing an agent's authority.
+
+Test the control path as well as the proposed feature. Can the agent merge its own change without the intended approval? Can it edit the workflow that declares success, or bypass a ruleset? These are architecture and repository-policy questions, not qualities that a better prompt can guarantee. The [least-privilege chapter](least-privilege.md#use-pull-requests-as-control-points) explains how review requirements become actual gates.
+
+## Make workflow handoffs event-aware
+
+<figure class="workshop-slide" markdown="1">
+
+![Reliable workflows use structured step and job outputs, GitHub event contexts, safe triggers, and job-level conditions so pull-request-only work runs only for a pull request event.](assets/7B-ReliableWorkflows.png){ loading=lazy decoding=async }
+
+<figcaption>Plans and signals should be structured outputs with explicit event assumptions, not text that downstream jobs guess how to interpret.</figcaption>
+</figure>
+
+A workflow triggered by a pull request, schedule, or manual dispatch does not always have the same context. A PR comment job, for example, needs an actual PR number. Gate PR-only work with an event-aware job condition such as `github.event_name == 'pull_request'`; provide a separate intentional path for manual validation instead of assuming missing PR fields exist.
+
+Pass machine-readable values through step outputs and declared job outputs. Have consumers depend on the producing job, validate required values, and distinguish success from skipped, failed, or cancelled work. A missing output is not an approval signal. Keep user-controlled issue titles, branch names, and model-generated text out of executable shell expressions.
+
+Treat trigger choice as a trust decision. Do not use a privileged event to execute untrusted pull request code with secrets or a write token merely to make a handoff easier. Reusable or chained workflows also need a clear account of whose code is running and which permissions it receives.
+
+The slide's JavaScript workflow is an illustration of event gating, not a workflow to install in this Python workshop. Its action version and commands are not dependency recommendations. Use the repository's existing `.github/workflows/pages.yml` as the local reference, and check current supported action versions when authoring a real workflow.
+
 !!! example "Try with GitHub Copilot"
     Ask: "Extend the evaluation plan without changing the policy. Add missing-context, threshold-boundary, invalid-data, and denied-action cases. Distinguish deterministic tests from repeated model evaluations and propose an explicit release gate."
 
