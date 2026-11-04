@@ -66,7 +66,7 @@ A handoff should carry the task identifier, accepted scope, revision, unresolved
 This mapping also identifies controls that prose cannot enforce. Saying "validation only" does not make an agent read-only; its runtime permissions must match that role. The [boundaries chapter](boundaries.md#draw-the-boundary-before-work-starts) develops the corresponding task contract, and [least privilege](least-privilege.md#enforce-the-plan-to-action-handoff) explains enforcement.
 
 !!! example "Try with GitHub Copilot"
-    Attach `examples/cloud_triage.py` and `tests/test_cloud_triage.py`. Ask: "Propose a specification for stale telemetry. Define the timestamp contract, maximum age, timezone handling, and safe failure. Ask about ambiguous requirements before implementing."
+    Paste the snippet above into Copilot Chat. Ask: "Propose a specification for stale telemetry. Define the timestamp contract, maximum age, timezone handling, and safe failure. Ask about ambiguous requirements before implementing."
 
 ## Checkpoint
 

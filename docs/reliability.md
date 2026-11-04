@@ -68,11 +68,11 @@ Pass machine-readable values through step outputs and declared job outputs. Have
 
 Treat trigger choice as a trust decision. Do not use a privileged event to execute untrusted pull request code with secrets or a write token merely to make a handoff easier. Reusable or chained workflows also need a clear account of whose code is running and which permissions it receives.
 
-The slide's JavaScript workflow is an illustration of event gating, not a workflow to install in this Python workshop. Its action version and commands are not dependency recommendations. Use the repository's existing `.github/workflows/pages.yml` as the local reference, and check current supported action versions when authoring a real workflow.
+The slide's JavaScript workflow is an illustration of event gating, not a workflow to install in this Python workshop. Its action version and commands are not dependency recommendations. Check current supported action versions in the [GitHub Actions documentation](https://docs.github.com/en/actions) when authoring a real workflow.
 
 !!! example "Try with GitHub Copilot"
     Ask: "Extend the evaluation plan without changing the policy. Add missing-context, threshold-boundary, invalid-data, and denied-action cases. Distinguish deterministic tests from repeated model evaluations and propose an explicit release gate."
 
 ## Checkpoint
 
-Run `python -m unittest discover -s tests -v`. Identify one behaviour that these tests cannot establish, such as a live model's hallucination rate. Define how you would measure it before release and monitor it afterward.
+Review the four fixture cases above. Identify one behaviour that deterministic tests like these cannot establish, such as a live model's hallucination rate. Define how you would measure it before release and monitor it afterward.

@@ -8,6 +8,10 @@ hero_alt: "AgentCon Singapore, part of the AgentCon World Tour by the Global AI 
 
 Keep learning after **Building the AI Native Cloud** at AgentCon Singapore 2026. Start with the learning paths supplied for this session, then use the reference documentation when implementing your own workflow.
 
+## Workshop code samples
+
+- [Code samples](https://github.com/codess-aus/AgentConSG-AINativeCloud/tree/main/examples): the standard-library Python triage example used in every chapter. Save both files into a folder named `examples` and run `python -m examples.cloud_triage`.
+
 ## Session learning paths
 
 - [Awesome Copilot Learning Hub](https://awesome-copilot.github.com/learning-hub/): community-curated guidance and practical patterns.
@@ -28,13 +32,5 @@ Keep learning after **Building the AI Native Cloud** at AgentCon Singapore 2026.
 - [Python unittest](https://docs.python.org/3/library/unittest.html): run and extend the workshop's deterministic test suite.
 - [OWASP Top 10 for LLM applications](https://genai.owasp.org/llm-top-10/): explore prompt injection, excessive agency, and related risks.
 - [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/): connect AI workflows with reliability, security, and operational excellence.
-
-## Workshop source and website
-
-- [Workshop repository](https://github.com/codess-aus/AgentConSG-AINativeCloud): Python example, tests, site configuration, and original slide images.
-- [MkDocs](https://www.mkdocs.org/): build the website locally.
-- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/): navigation, search, and accessible theme controls.
-- [GitHub Pages](https://docs.github.com/en/pages): understand the publishing workflow.
-- [AgentCon Singapore](https://agentcon.city/singapore): conference information.
 
 The workshop example is deliberately offline and read-only. Before using a real model or cloud API, add authenticated identity, scoped credentials, schema validation at the model boundary, deadlines, redacted observability, and a representative evaluation dataset.

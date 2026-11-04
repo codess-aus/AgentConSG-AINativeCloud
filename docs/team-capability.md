@@ -14,7 +14,7 @@ An individual's prompt history is not a team capability. Capture reusable intent
 
 Use repository instructions for Python conventions and safety expectations. Use issues for task-specific acceptance criteria and pull requests for review evidence. Reusable prompt files can describe common workflows, but they should not duplicate rapidly changing policy or claim to enforce permissions.
 
-This repository includes `.github/copilot-instructions.md`. It directs Copilot toward the sample's actual contracts, standard-library tests, and explicit failure behaviour. Contributors can review those instructions like any other change.
+Store shared instructions in `.github/copilot-instructions.md`. Point Copilot toward the project's actual contracts, tests, and explicit failure behaviour. Contributors can review those instructions like any other change.
 
 ## Measure the whole delivery loop
 
@@ -54,8 +54,8 @@ Likewise, GitHub Actions token permissions are separate from an agent runtime's 
 Make recovery repeatable with a short exercise: simulate an unavailable telemetry source, capture the failure and escalation, and have a teammate resume using only the recorded evidence. Before any future write-capable integration, identify who can disable it, revoke its credentials, and recover from a partial action. Add the reviewed failure case to the shared test or evaluation set so the next team benefits from the incident.
 
 !!! example "Try with GitHub Copilot"
-    Ask: "Review the repository instructions against the actual code and tests. Suggest one reusable instruction that prevents a concrete recurring mistake, and one task-specific instruction that belongs in an issue instead. Do not introduce new tooling."
+    In your own repository, ask: "Review the repository instructions against the actual code and tests. Suggest one reusable instruction that prevents a concrete recurring mistake, and one task-specific instruction that belongs in an issue instead. Do not introduce new tooling."
 
 ## Checkpoint
 
-Have a teammate reproduce the example and explain its boundaries using only the repository. Record one improvement to the shared workflow, its owner, and the evidence you will use to judge whether it helps.
+Have a teammate explain one of your workflows and its boundaries using only what is recorded in version control. Record one improvement to the shared workflow, its owner, and the evidence you will use to judge whether it helps.

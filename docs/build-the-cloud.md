@@ -32,7 +32,7 @@ print(plan)
 Use Copilot to explore the existing service and draft acceptance criteria before implementation. Keep the issue, reviewed specification, code change, tests, and operational evidence linked. The release decision belongs to the service owner.
 
 !!! example "Try with GitHub Copilot"
-    Open `examples/cloud_triage.py`. Ask: "Explain the incident-triage flow without changing files. Identify the trust boundary between a proposal and tool execution. Draft acceptance criteria for a read-only first release, including missing telemetry and an unknown service."
+    Paste the snippet above into Copilot Chat. Ask: "Explain the incident-triage flow without changing files. Identify the trust boundary between a proposal and tool execution. Draft acceptance criteria for a read-only first release, including missing telemetry and an unknown service."
 
 ## Checkpoint
 
