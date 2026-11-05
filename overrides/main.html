@@ -29,3 +29,15 @@
     </nav>
   {% endif %}
 {% endblock %}
+
+{% block footer %}
+  {# Shown above the theme footer on every page, including 404. #}
+  <section class="workshop-connect" aria-labelledby="workshop-connect-title">
+    <div class="md-grid">
+      <h2 id="workshop-connect-title">Connect with me</h2>
+      <p>Michelle Sandford: find my talks, socials, and blog on
+        <a href="https://linktr.ee/codess_aus">Linktree</a>.</p>
+    </div>
+  </section>
+  {{ super() }}
+{% endblock %}

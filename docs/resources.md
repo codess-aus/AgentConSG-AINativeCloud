@@ -8,6 +8,11 @@ hero_alt: "AgentCon Singapore, part of the AgentCon World Tour by the Global AI 
 
 Keep learning after **Building the AI Native Cloud** at AgentCon Singapore 2026. Start with the learning paths supplied for this session, then use the reference documentation when implementing your own workflow.
 
+## Connect with the speaker
+
+- [Michelle Sandford on Linktree](https://linktr.ee/codess_aus): talks, social profiles, and other links.
+- [Scaling Guacamole](https://www.scaling-guacamole.com/): Michelle's blog.
+
 ## Workshop code samples
 
 - [Code samples](https://github.com/codess-aus/AgentConSG-AINativeCloud/tree/main/examples): the standard-library Python triage example used in every chapter. Save both files into a folder named `examples` and run `python -m examples.cloud_triage`.

@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 sys.path.insert(0, str(ROOT))
 
+CONNECT_URL = "https://linktr.ee/codess_aus"
+
 # Keep supporting slides in their chapters, separate from the original heroes.
 CHAPTER_SLIDES = {
     "human-judgment": ["3A-Structure.png"],
@@ -87,6 +89,7 @@ def check() -> None:
 
     assert len(pages) >= 13, "Expected twelve workshop pages and a 404 page"
     for path, page in pages.items():
+        assert CONNECT_URL in page.links, f"Missing Connect footer link: {path}"
         if path.name == "404.html":
             continue
         assert page.hero_count == 1, f"Missing hero: {path}"
