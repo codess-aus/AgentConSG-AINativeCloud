@@ -93,6 +93,41 @@
   font: inherit;
 }
 
+/*
+ * accessibility.js swaps the search toggle <label for="__search"> for a
+ * <button>. Material positions that icon and picks magnify vs back arrow via
+ * the [for=__search] selector, which a button lacks, so mirror those rules.
+ */
+.md-search__form > .workshop-control.md-search__icon {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.5rem;
+  z-index: 2;
+}
+
+/* Desktop: decorative magnifier only; clicks pass through to the input. */
+@media screen and (min-width: 60em) {
+  .md-search__form > .workshop-control.md-search__icon {
+    pointer-events: none;
+  }
+
+  .md-search__form > .workshop-control.md-search__icon svg:last-child {
+    display: none;
+  }
+}
+
+/* Mobile: the icon becomes a back arrow that closes the search overlay. */
+@media screen and (max-width: 59.984375em) {
+  .md-search__form > .workshop-control.md-search__icon {
+    top: 0.6rem;
+    left: 0.8rem;
+  }
+
+  .md-search__form > .workshop-control.md-search__icon svg:first-child {
+    display: none;
+  }
+}
+
 .md-copyright {
   color: #b1bac4;
 }
