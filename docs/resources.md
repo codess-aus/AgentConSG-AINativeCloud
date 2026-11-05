@@ -26,6 +26,12 @@ Keep learning after **Building the AI Native Cloud** at AgentCon Singapore 2026.
 - [Responsible use of GitHub Copilot](https://docs.github.com/en/copilot/responsible-use): understand limitations and human review responsibilities.
 - [GitHub Actions documentation](https://docs.github.com/en/actions): automate tests, builds, and release gates.
 
+## Spec-driven and agentic delivery
+
+- [GitHub Spec Kit](https://github.github.com/spec-kit/): structured processes that put intent and evidence ahead of implementation, including Spec-Driven Development, bug fixing, and idea assessment.
+- [Spec Kit for GitHub Copilot](https://github.com/github/spec-kit-copilot): Copilot-native Spec Kit integrations for Copilot CLI, the Copilot app, and VS Code.
+- [Git-Ape](https://azure.github.io/git-ape/): a GitHub Copilot multi-agent framework that turns natural-language intent into Azure deployments, with security, cost, and review gates before merge. It is experimental; use it only for learning and sandbox subscriptions.
+
 ## Tools, evaluation, and secure systems
 
 - [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro): understand the protocol, then design your own permission boundaries.
