@@ -97,6 +97,39 @@
   color: #b1bac4;
 }
 
+/* "Connect with me" band, styled to sit flush above the theme footer. */
+.workshop-connect {
+  background: var(--md-footer-bg-color);
+  color: var(--md-footer-fg-color);
+  border-bottom: 1px solid var(--md-footer-fg-color--lighter);
+}
+
+.workshop-connect .md-grid {
+  padding: 1rem 0.8rem;
+}
+
+.workshop-connect h2 {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 750;
+}
+
+.workshop-connect p {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.workshop-connect a {
+  color: #d2bdff;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.workshop-connect a:focus-visible {
+  outline: 3px solid #79c0ff;
+  outline-offset: 4px;
+}
+
 .workshop-hero {
   margin: 0 0 1.7rem !important;
   max-width: none !important;
